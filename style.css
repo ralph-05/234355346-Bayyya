@@ -1,0 +1,91 @@
+body {  
+    font-family: 'Fira Sans', sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background: linear-gradient(135deg, #4a90e2, #9013fe);  
+    color: #fff;  
+    transition: background 0.5s ease;  
+}  
+
+h1 {  
+    font-size: 3em;  
+    text-align: center;  
+    margin: 20px 0;  
+}  
+
+h2 {  
+    text-align: center;  
+    font-size: 2.5em;  
+    margin: 20px 0;  
+}  
+
+img {  
+    display: block;  
+    margin: 0 auto;  
+    border-radius: 50%;  
+    width: 150px;  
+    height: 150px;  
+    transition: transform 0.3s ease;  
+}  
+
+img:hover {  
+    transform: scale(1.1);  
+}  
+
+.menu {  
+    max-width: 800px;  
+    margin: 0 auto;  
+    padding: 20px;  
+    background: rgba(255, 255, 255, 0.1);  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  
+}  
+
+.course {  
+    margin-bottom: 20px;  
+    padding: 15px;  
+    border: 1px solid rgba(255, 255, 255, 0.3);  
+    border-radius: 8px;  
+    transition: transform 0.3s ease;  
+}  
+
+.course:hover {  
+    transform: translateY(-5px);  
+}  
+
+.item {  
+    margin: 10px 0;  
+}  
+
+h3 {  
+    font-size: 1.5em;  
+    margin-bottom: 10px;  
+}  
+
+h4 {  
+    font-size: 1.2em;  
+    margin: 5px 0;  
+}  
+
+.section {  
+    text-align: center;  
+    padding: 20px;  
+}  
+
+footer {  
+    text-align: center;  
+    padding: 10px;  
+    background: rgba(255, 255, 255, 0.1);  
+    position: relative;  
+    bottom: 0;  
+    width: 100%;  
+}  
+
+ul {  
+    list-style-type: none;  
+    padding: 0;  
+}  
+
+ul li {  
+    margin: 5px 0;  
+}
