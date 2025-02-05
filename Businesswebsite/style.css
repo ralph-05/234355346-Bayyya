@@ -2,90 +2,118 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 header {
-    background: #333;
+    background: #4CAF50; /* Green background */
     color: white;
-    padding: 1rem 0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Add styles for the logo image */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 80px; /* Desired width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and text */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    margin-left: 5px; /* Add space between logo and text */
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
     list-style: none;
+    padding: 0;
 }
 
 nav ul li {
-    margin: 0 15px;
+    display: inline;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 .hero {
-    background-image: url('https://source.unsplash.com/1600x900/?business');
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
+    background: #e9f5e9; /* Light green background */
+    padding: 60px 20px;
     text-align: center;
 }
 
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
 .cta-button {
-    background: #ff5733;
+    display: inline-block;
+    background: #4CAF50;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
+    margin-top: 15px;
 }
 
 .cta-button:hover {
-    background: #e74c3c;
+    background: #45a049; /* Darker green on hover */
 }
 
 section {
-    padding: 2rem;
-    text-align: center;
+    padding: 40px 20px;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #4CAF50; /* Green color for headings */
 }
 
 .service-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around; /* Space between items */
+    flex-wrap: wrap;
 }
 
 .service-item {
-    background: #f4f4f4;
+    flex: 1;
+    margin: 10px;
     padding: 20px;
-    border-radius: 5px;
-    width: 250px;
+    background: #f0f0f0;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-footer {
-    background: #333;
+.footer-content {
+    background: #4caf50;
     color: white;
     text-align: center;
-    padding: 1rem 0;
-}
-
-@media (max-width: 600px) {
-    .service-container {
-        flex-direction: column;
-    }
-
-    .service-item {
-        width: auto; /* Adjust width for mobile */
-    }
+    padding: 10px 0;
 }
