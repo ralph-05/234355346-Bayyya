@@ -9,6 +9,8 @@ body {
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
+    scroll-behavior: smooth; 
+    padding-top: 80px; 
 }
 
 header {
@@ -16,7 +18,11 @@ header {
     color: white;
     padding: 20px 0;
     text-align: center;
-    position: relative;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .logo {

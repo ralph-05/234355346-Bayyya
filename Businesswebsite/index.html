@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags and Title -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedicCorp</title>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,7 +42,7 @@
     <section id="about">
         <div class="about-content">
             <h2>About Us</h2>
-            <p>Welcome to MedicCorp! We are committed to delivering exceptional medical services and innovative healthcare solutions tailored to your needs.</p>
+            <p>MedicCorp is dedicated to providing exceptional medical services and innovative healthcare solutions. We are committed to improving the health and well-being of our community through comprehensive care, advanced diagnostics, and a patient-centered approach. Our mission is to deliver accessible, high-quality healthcare services when and where you need them. Whether it's through our clinic-based services, on-site medical support, or our rapid emergency response team, MedicCorp is here to serve.</p>
         </div>
     </section>
 
@@ -47,16 +52,24 @@
             <h2>Our Services</h2>
             <div class="service-container">
                 <div class="service-item">
-                    <h3>Consultations</h3>
-                    <p>Personalized consultations with experienced healthcare professionals.</p>
+                    <h3>Clinic-Based Care</h3>
+                    <p>24/7 Emergency Services, Primary Care, Minor Surgical Procedures, Diagnostics (Lab, X-Ray), Pharmacy.</p>
                 </div>
                 <div class="service-item">
-                    <h3>Diagnostics</h3>
-                    <p>Comprehensive diagnostic services for accurate health assessments.</p>
+                    <h3>On-Site Medical Support</h3>
+                    <p>Medical Staffing for remote locations, Equipment Provision, Medical Emergency Response Planning (MERP).</p>
+                </div>
+                <div class="service-item">
+                    <h3>Emergency Response</h3>
+                    <p>Rapid response teams providing critical aid during emergencies and disasters. Medical evacuation services available.</p>
                 </div>
                 <div class="service-item">
                     <h3>Wellness Programs</h3>
-                    <p>Holistic wellness programs to improve your overall health and well-being.</p>
+                    <p>Comprehensive wellness programs designed to improve your overall health and prevent illness. Includes health risk assessments and personalized plans.</p>
+                </div>
+                 <div class="service-item">
+                    <h3>Telemedicine</h3>
+                    <p>Remote consultations with our doctors via phone or video, bringing healthcare to you, wherever you are.</p>
                 </div>
             </div>
         </div>
@@ -78,6 +91,7 @@
         </div>
     </footer>
 
+    <!-- Schedule Appointment Modal -->
     <div id="scheduleModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -103,11 +117,12 @@
         </div>
     </div>
 
+    <!-- JavaScript Section -->
     <script>
         var modal = document.getElementById("scheduleModal");
         var btn = document.getElementById("getStartedBtn");
         var span = document.getElementsByClassName("close")[0];
-
+ 
         btn.onclick = function() {
             modal.style.display = "block";
         }
@@ -125,12 +140,14 @@
         document.getElementById("scheduleForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
+  
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const phone = document.getElementById("phone").value;
             const appointmentDate = document.getElementById("appointmentDate").value;
             const message = document.getElementById("message").value;
 
+         
             const formData = {
                 name: name,
                 email: email,
@@ -153,11 +170,13 @@
                 return response.json();
             })
             .then(data => {
+
                 alert("Appointment request submitted successfully!");
                 modal.style.display = "none";
-                document.getElementById("scheduleForm").reset();
+                document.getElementById("scheduleForm").reset(); // Clear the form
             })
             .catch(error => {
+
                 console.error("There was a problem submitting the form:", error);
                 alert("There was an error submitting your request. Please try again.");
             });
