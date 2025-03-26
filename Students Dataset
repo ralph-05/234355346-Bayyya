@@ -1,0 +1,53 @@
+CREATE DATABASE SchoolDB;
+
+USE SchoolDB;
+
+CREATE TABLE Students (
+    ID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Age INT,
+    Grade INT
+);
+
+INSERT INTO Students (ID, FirstName, LastName, Age, Grade) VALUES
+(1, 'Alice', 'Johnson', 14, 8),
+(2, 'Bob', 'Smith', 15, 9),
+(3, 'Charlie', 'Brown', 13, 7),
+(4, 'Diana', 'Prince', 16, 10),
+(5, 'Evan', 'Taylor', 14, 8),
+(6, 'Faith', 'Garcia', 15, 9),
+(7, 'George', 'Mendoza', 13, 7),
+(8, 'Hannah', 'Cruz', 16, 10),
+(9, 'Isaac', 'Lopez', 14, 8),
+(10, 'Jasmine', 'Reyes', 15, 9),
+(11, 'Kevin', 'Diaz', 13, 7),
+(12, 'Liam', 'Santos', 16, 10),
+(13, 'Mia', 'Torres', 14, 8),
+(14, 'Nathan', 'Flores', 15, 9),
+(15, 'Olivia', 'Gutierrez', 13, 7),
+(16, 'Patrick', 'Morales', 16, 10),
+(17, 'Quinn', 'Ramos', 14, 8),
+(18, 'Riley', 'Castro', 15, 9),
+(19, 'Sophie', 'Jimenez', 13, 7),
+(20, 'Tyler', 'Vargas', 16, 10),
+(21, 'Ulysses', 'Pineda', 14, 8),
+(22, 'Vanessa', 'Delgado', 15, 9),
+(23, 'Wendy', 'Ortiz', 13, 7),
+(24, 'Xander', 'Fernandez', 16, 10),
+(25, 'Yasmine', 'Navarro', 14, 8),
+(26, 'Zachary', 'Salazar', 15, 9),
+(27, 'Aiden', 'Dominguez', 13, 7),
+(28, 'Bella', 'Escobar', 16, 10),
+(29, 'Caleb', 'Valdez', 14, 8),
+(30, 'Danica', 'Mendez', 15, 9),
+(31, 'Ethan', 'Rojas', 13, 7),
+(32, 'Fiona', 'Herrera', 16, 10),
+(33, 'Gavin', 'Aguilar', 14, 8),
+(34, 'Hailey', 'Villanueva', 15, 9),
+(35, 'Ian', 'Figueroa', 13, 7),
+(36, 'Jenna', 'Cortez', 16, 10),
+(37, 'Kyle', 'Medina', 14, 8),
+(38, 'Luna', 'Silva', 15, 9),
+(39, 'Mason', 'Martinez', 13, 7),
+(40, 'Noah', 'Rosales', 16, 10);
