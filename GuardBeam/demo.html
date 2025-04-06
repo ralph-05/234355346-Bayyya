@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuardBeam - Live Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="flex flex-col md:flex-row h-screen">
+    <!-- 3D Visualization Panel -->
+    <div class="w-full md:w-1/2 h-1/2 md:h-full relative" id="visualization">
+      <div id="app" class="w-full h-full"></div>
+      <div class="absolute top-4 left-4 bg-black bg-opacity-70 p-2 rounded">
+        <button id="nightToggle" class="px-3 py-1 bg-blue-600 rounded">
+          <i class="fas fa-moon mr-2"></i>Night Mode
+        </button>
+      </div>
+    </div>
+
+    <!-- Dashboard Panel -->
+    <div class="w-full md:w-1/2 h-1/2 md:h-full bg-gray-800 p-6 overflow-y-auto">
+      <h1 class="text-2xl font-bold mb-6">GuardBeam Live Dashboard</h1>
+      
+      <div class="grid gap-6">
+        <!-- Camera System -->
+        <div class="bg-gray-700 p-4 rounded-lg">
+          <h2 class="text-xl font-semibold mb-3 flex items-center">
+            <i class="fas fa-video text-red-500 mr-2"></i> Camera System
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Detection Confidence</span>
+                <span id="cameraConfidence">85%</span>
+              </div>
+              <div class="w-full bg-gray-600 rounded-full h-2.5">
+                <div id="cameraBar" class="bg-red-500 h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p class="text-gray-400">Distance</p>
+                <p id="cameraDistance" class="text-xl">42m</p>
+              </div>
+              <div>
+                <p class="text-gray-400">Speed</p>
+                <p id="cameraSpeed" class="text-xl">60km/h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infrared Sensor -->
+        <div class="bg-gray-700 p-4 rounded-lg">
+          <h2 class="text-xl font-semibold mb-3 flex items-center">
+            <i class="fas fa-temperature-low text-blue-400 mr-2"></i> Infrared Sensor
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Detection Strength</span>
+                <span id="infraredStrength">72%</span>
+              </div>
+              <div class="w-full bg-gray-600 rounded-full h-2.5">
+                <div id="infraredBar" class="bg-blue-400 h-2.5 rounded-full" style="width: 72%"></div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p class="text-gray-400">Distance</p>
+                <p id="infraredDistance" class="text-xl">38m</p>
+              </div>
+              <div>
+                <p class="text-gray-400">Motion</p>
+                <p id="infraredMotion" class="text-xl">Detected</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alert System -->
+        <div class="bg-gray-700 p-4 rounded-lg">
+          <h2 class="text-xl font-semibold mb-3 flex items-center">
+            <i class="fas fa-exclamation-triangle text-yellow-400 mr-2"></i> Alert System
+          </h2>
+          <div id="alerts" class="space-y-2">
+            <div class="p-2 bg-yellow-900 rounded flex items-start">
+              <i class="fas fa-exclamation-circle text-yellow-400 mt-1 mr-2"></i>
+              <div>
+                <p class="font-medium">Vehicle approaching</p>
+                <p class="text-sm text-gray-300">Estimated time to impact: 2.8s</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple Three.js initialization
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/2/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth/2, window.innerHeight);
+    document.getElementById('app').appendChild(renderer.domElement);
+
+    // Add basic lighting
+    const light = new THREE.AmbientLight(0x404040);
+    scene.add(light);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    scene.add(directionalLight);
+
+    // Add simple car
+    const geometry = new THREE.BoxGeometry(2, 1, 4);
+    const material = new THREE.MeshPhongMaterial({ color: 0x156289 });
+    const car = new THREE.Mesh(geometry, material);
+    scene.add(car);
+
+    camera.position.set(0, 3, 5);
+    
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth/2 / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth/2, window.innerHeight);
+    });
+  </script>
+  <script src="demo.js"></script>
+</body>
+</html>
